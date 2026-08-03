@@ -1,8 +1,8 @@
-package com.example.control_panel.controller;
+package com.example.control_plane.controller;
 
-import com.example.control_panel.dto.HealthReportRequest;
-import com.example.control_panel.model.HealthReport;
-import com.example.control_panel.repository.HealthReportRepository;
+import com.example.control_plane.dto.HealthReportRequest;
+import com.example.control_plane.model.HealthReport;
+import com.example.control_plane.repository.HealthReportRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +32,7 @@ public class HealthReportController {
                 report.latencyToControlPlaneMs(),
                 report.bytesSentSinceLastReport(),
                 report.bytesReceivedSinceLastReport(),
-                Instant.parse(report.reportedAt())
+                report.reportedAt()
         );
         repository.save(entity);
         log.info("Saved health report for serverId={}", report.serverId());

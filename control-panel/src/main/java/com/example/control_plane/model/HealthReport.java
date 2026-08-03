@@ -1,4 +1,4 @@
-package com.example.control_panel.model;
+package com.example.control_plane.model;
 
 import jakarta.persistence.*;
 import java.time.Instant;
@@ -9,7 +9,7 @@ import java.util.UUID;
 public class HealthReport {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @Column(nullable = false)
@@ -19,7 +19,7 @@ public class HealthReport {
     private double memPct;
     private double diskPct;
     private boolean processAlive;
-    long latencyToControlPanelMs;
+    long latencyToControlPlaneMs;
     long bytesSentSinceLastReport;
     long bytesReceivedSinceLastReport;
 
@@ -29,13 +29,13 @@ public class HealthReport {
     protected HealthReport() {} // required by JPA
 
     public HealthReport(String serverId, double cpuPct, double memPct,
-                        double diskPct, boolean processAlive, long latencyToControlPanelMs, long bytesSentSinceLastReport, long bytesReceivedSinceLastReport, Instant reportedAt) {
+                        double diskPct, boolean processAlive, long latencyToControlPlaneMs, long bytesSentSinceLastReport, long bytesReceivedSinceLastReport, Instant reportedAt) {
         this.serverId = serverId;
         this.cpuPct = cpuPct;
         this.memPct = memPct;
         this.diskPct = diskPct;
         this.processAlive = processAlive;
-        this.latencyToControlPanelMs = latencyToControlPanelMs;
+        this.latencyToControlPlaneMs = latencyToControlPlaneMs;
         this.bytesSentSinceLastReport = bytesSentSinceLastReport;
         this.bytesReceivedSinceLastReport = bytesReceivedSinceLastReport;
         this.reportedAt = reportedAt;
@@ -48,7 +48,7 @@ public class HealthReport {
     public double getMemPct() { return memPct; }
     public double getDiskPct() { return diskPct; }
     public boolean isProcessAlive() { return processAlive; }
-    public long getLatencyToControlPanelMs() { return latencyToControlPanelMs; }
+    public long getLatencyToControlPlaneMs() { return latencyToControlPlaneMs; }
     public long getBytesSentSinceLastReport() { return bytesSentSinceLastReport; }
     public long getBytesReceivedSinceLastReport() { return bytesReceivedSinceLastReport; }
     public Instant getReportedAt() { return reportedAt; }

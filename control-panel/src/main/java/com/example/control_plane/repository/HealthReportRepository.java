@@ -1,6 +1,6 @@
-package com.example.control_panel.repository;
+package com.example.control_plane.repository;
 
-import com.example.control_panel.model.HealthReport;
+import com.example.control_plane.model.HealthReport;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
