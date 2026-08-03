@@ -6,5 +6,8 @@ public record HealthReportRequest(
         double memPct,
         double diskPct,
         boolean processAlive,
+        long latencyToControlPlaneMs,
+        long bytesSentSinceLastReport,
+        long bytesReceivedSinceLastReport,
         String reportedAt
 ) {}
