@@ -1,4 +1,4 @@
-package com.example.control_panel;
+package com.example.control_plane;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
